@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+body {
+    margin: 0;
+    background-color: white;
+}
+::selection{
+    background-color: yellow;
+}
+
+#victor{
+    width: 400px;
+    position: fixed;
+    right: 100px;
+    top: 100px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.menu-icon {
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 15px;
+    display: none;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+header li {
+    margin: 0;
+}
+
+header a {
+    text-align: center;
+    margin-inline: 7px;
+    font-size: 20px;
+    display: inline-flex;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+header a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.5s ease;
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+main {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 250px;
+    margin-inline: 30px;
+    color: black;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+main h1 {
+    font-size: 50pt;
+}
+
+@media screen and (max-width: 1000px) {
+    main h1{
+        font-size: 40pt ;
+    }
+    .home {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .menu-icon {
+        display: block;
+        position: fixed;
+        right: 10px;
+    }
+
+    header ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 59px;
+        padding-bottom: 5px;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        text-align: center;
+        max-height: 0; /* Set initial max-height to 0 */
+        overflow: hidden; /* Hide the content initially */
+        transition: max-height 0.5s ease; /* Add transition effect to max-height */
+    }
+
+    header ul.show {
+        max-height: 200px; /* Adjust the max-height to the maximum height of your menu */
+    }
+
+    header li {
+        margin: 0;
+    }
+
+    header a {
+        margin: 0;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+
+    main {
+        margin-top: 220px;
+        margin-inline: 10px;
+        text-align: center;
+    }
+    header a:hover::after {
+        width: 60%;
+    }
+    #victor{
+        position: static;
+    }
+}
+
+
+
+
+/* Add this style to hide the menu icon on larger screens */
+@media screen and (min-width: 1001px) {
+    .menu-icon {
+        display: none;
+    }
+
+    header ul {
+        display: flex; /* Show the menu on larger screens */
+    }
+}
